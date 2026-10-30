@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { AnimatedTextLines } from "../components/AnimatedTextLines";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+
 const AnimatedHeaderSection = ({
   subTitle,
   title,
@@ -12,8 +13,9 @@ const AnimatedHeaderSection = ({
 }) => {
   const contextRef = useRef(null);
   const headerRef = useRef(null);
-  const shouldSplitTitle = title.includes(" ");
+  const shouldSplitTitle = typeof title === "string" && title.includes(" ");
   const titleParts = shouldSplitTitle ? title.split(" ") : [title];
+
   useGSAP(() => {
     const tl = gsap.timeline({
       scrollTrigger: withScrollTrigger
@@ -38,25 +40,34 @@ const AnimatedHeaderSection = ({
       "<+0.2"
     );
   }, []);
+
   return (
     <div ref={contextRef}>
-      <div style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}>
+      <div
+        style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
+        className="pb-3"
+      >
         <div
           ref={headerRef}
-          className="flex flex-col justify-center gap-12 pt-16 sm:gap-16"
+          className="flex flex-col justify-center gap-12 pt-16 pb-4 sm:gap-16"
         >
-          <p
-            className={`text-sm font-light tracking-[0.5rem] uppercase px-10 ${textColor}`}
-          >
-            {subTitle}
-          </p>
-          <div className="px-10">
-            <h1
-              className={`flex flex-col gap-12 uppercase banner-text-responsive sm:gap-16 md:block ${textColor}`}
+          {subTitle && (
+            <p
+              className={`text-sm font-light tracking-[0.5rem] uppercase px-10 ${textColor}`}
             >
-              {titleParts.map((part, index) => (
-                <span key={index}>{part} </span>
-              ))}
+              {subTitle}
+            </p>
+          )}
+          <div className="px-10 pb-4 overflow-visible">
+            <h1
+              className={`flex flex-col gap-12 uppercase banner-text-responsive sm:gap-16 md:block pb-2.5 ${textColor}`}
+              style={{ lineHeight: 1.1, paddingBottom: "10px" }}
+            >
+              {typeof title === "string"
+                ? titleParts.map((part, index) => (
+                    <span key={index}>{part} </span>
+                  ))
+                : title}
             </h1>
           </div>
         </div>

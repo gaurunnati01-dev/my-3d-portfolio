@@ -15,6 +15,7 @@ const About = () => {
 🧗 Rock climbing (problem-solving with real stakes)
 🎸 Strumming chords while CI pipelines pass (multitasking at its finest)`;
   const imgRef = useRef(null);
+
   useGSAP(() => {
     gsap.to("#about", {
       scale: 0.95,
@@ -29,7 +30,7 @@ const About = () => {
     });
 
     gsap.set(imgRef.current, {
-      clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)",
+      clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)",
     });
     gsap.to(imgRef.current, {
       clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
@@ -38,6 +39,7 @@ const About = () => {
       scrollTrigger: { trigger: imgRef.current },
     });
   });
+
   return (
     <section id="about" className="min-h-screen bg-black rounded-b-4xl">
       <AnimatedHeaderSection
@@ -50,9 +52,9 @@ const About = () => {
       <div className="flex flex-col items-center justify-between gap-16 px-10 pb-16 text-xl font-light tracking-wide lg:flex-row md:text-2xl lg:text-3xl text-white/60">
         <img
           ref={imgRef}
-          src="images/man.jpg"
-          alt="man"
-          className="w-md rounded-3xl"
+          src="/unnati-profile.jpg"
+          alt="Unnati Gaur"
+          className="w-md rounded-3xl object-cover grayscale"
         />
         <AnimatedTextLines text={aboutText} className={"w-full"} />
       </div>
