@@ -17,7 +17,7 @@ This is a fully animated, interactive, 3D developer portfolio designed to **impr
 </div>
 <br/>
 
-> 📺 [Watch Full YouTube Walkthrough](https://youtu.be/i0229UsdBwc)
+
 ---
 
 ## 🚀 Tech Stack
@@ -47,7 +47,7 @@ This is a fully animated, interactive, 3D developer portfolio designed to **impr
 ## 📦 Setup & Installation
 
 ```bash
-git clone https://github.com/Ali-Sanati/awwwards-portfolio.git
+https://github.com/gaurunnati01-dev/my-3d-portfolio.git
 cd awwwards-portfolio
 npm install
 npm run dev
@@ -81,11 +81,9 @@ If this helped you build or inspire your own site:
 
 - ⭐ Star this repo
 
-- 📺 [Watch the full walkthrough on YouTube](https://youtu.be/i0229UsdBwc)
+- 📬 [Connect on LinkedIn](https://www.linkedin.com/in/unnatigaur01-developer)
 
-- 📬 [Connect on LinkedIn](https://www.linkedin.com/in/ali-sanati)
-
-- 📷 [Follow me on Instagram](https://www.instagram.com/ali.sanatidev/reels/)
+- 📷 [Follow me on Instagram](https://www.instagram.com/unnatigaur01dev.io)
 
 ---
 
