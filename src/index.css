@@ -60,7 +60,7 @@
   font-display: swap;
 }
 
-/* Amiamie-Round Variants (if needed separately) */
+/* Amiamie-Round Variants */
 @font-face {
   font-family: "Amiamie-Round";
   src: url("/fonts/otf/Amiamie-RegularRound.otf") format("opentype"),
@@ -94,8 +94,11 @@
   --color-DarkLava: #393632;
   --color-SageGray: #8b8b73;
   --color-gold: #cfa355;
-  --font-amiamie: "Amiamie", sans-serif;
-  --font-amiamie-round: "Amiamie-Round", sans-serif;
+  --font-trendy: "Syne", "Amiamie", sans-serif;
+  --font-sans: "Plus Jakarta Sans", "Amiamie", sans-serif;
+  --font-mono: "Space Grotesk", sans-serif;
+  --font-amiamie: "Plus Jakarta Sans", "Amiamie", sans-serif;
+  --font-amiamie-round: "Syne", "Amiamie-Round", sans-serif;
 
   --animate-marquee: marquee 40s infinite linear;
   @keyframes marquee {
@@ -113,7 +116,11 @@ body {
   color: black;
   scroll-behavior: smooth;
   overflow-x: hidden;
-  font-family: var(--font-amiamie);
+  font-family: "Plus Jakarta Sans", var(--font-amiamie), sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: "Syne", var(--font-amiamie), sans-serif;
 }
 
 @utility clip-path {
@@ -122,26 +129,34 @@ body {
 
 @utility banner-text-responsive {
   @apply text-[68px] sm:text-[118px] md:text-[126px] lg:text-[152px];
-  line-height: 1.1;
+  font-family: "Syne", "Amiamie", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
   padding-bottom: 10px;
 }
 
 @utility value-text-responsive {
   @apply text-2xl md:text-[26px] lg:text-[32px];
+  font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif;
 }
 
 @utility marquee-text-responsive {
   @apply text-[28px] sm:text-[36px] lg:text-[42px];
+  font-family: "Syne", sans-serif;
+  letter-spacing: -0.02em;
 }
 
 @utility contact-text-responsive {
   @apply text-[42px] sm:text-[52px] md:text-[62px] lg:text-[100px];
+  font-family: "Syne", sans-serif;
   line-height: 1.1;
   padding-bottom: 10px;
 }
 
 .section-head-text,
 .banner-text-responsive {
-  line-height: 1.1;
+  font-family: "Syne", sans-serif;
+  line-height: 1.05;
   padding-bottom: 10px;
 }

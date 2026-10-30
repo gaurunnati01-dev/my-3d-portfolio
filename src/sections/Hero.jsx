@@ -13,7 +13,7 @@ results driven webs/apps`;
   return (
     <section
       id="home"
-      className="relative flex flex-col justify-end min-h-screen bg-[#e5e5e0] overflow-hidden"
+      className="relative flex flex-col justify-end min-h-screen bg-[#e5e5e0] overflow-hidden text-black"
     >
       {/* 3D Model Canvas centered in background */}
       <figure
@@ -59,14 +59,10 @@ results driven webs/apps`;
         </Canvas>
       </figure>
 
-      {/* Header and Tagline in front */}
-      <div className="relative z-10 w-full pointer-events-none">
+      {/* Header and Tagline in front - All solid black */}
+      <div className="relative z-10 w-full pointer-events-none text-black">
         <AnimatedHeaderSection
-          title={
-            <span>
-              Hi, I'm <span className="text-[#915EFF]">Unnati Gaur</span>
-            </span>
-          }
+          title={"Hi, I'm Unnati Gaur"}
           text={text}
           textColor={"text-black"}
         />
