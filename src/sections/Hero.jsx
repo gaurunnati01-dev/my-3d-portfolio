@@ -1,14 +1,11 @@
-import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Environment, Float, Lightformer, useGLTF } from "@react-three/drei";
+import { Planet } from "../components/Planet";
+import { Environment, Float, Lightformer } from "@react-three/drei";
+import { useMediaQuery } from "react-responsive";
 import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
 
-const Model = () => {
-  const { scene } = useGLTF("/models/model.glb");
-  return <primitive object={scene} scale={1.0} position={[0, 0, 0]} />;
-};
-
 const Hero = () => {
+  const isMobile = useMediaQuery({ maxWidth: 853 });
   const text = `I help growing brands and startups gain an
 unfair advantage through premium
 results driven webs/apps`;
@@ -16,23 +13,21 @@ results driven webs/apps`;
   return (
     <section
       id="home"
-      className="relative flex flex-col justify-end min-h-screen bg-[#f3f3f3] overflow-hidden"
+      className="relative flex flex-col justify-end min-h-screen bg-[#e5e5e0] overflow-hidden"
     >
-      {/* 3D Canvas in background (z-0 so it renders on top of bg-[#f3f3f3]) */}
+      {/* 3D Model Canvas centered in background */}
       <figure
         className="absolute inset-0 z-0 pointer-events-none"
-        style={{ width: "100%", height: "100%" }}
+        style={{ width: "100vw", height: "100vh" }}
       >
         <Canvas
           shadows
-          camera={{ position: [0, 0, 5], fov: 45 }}
+          camera={{ position: [0, 0, -10], fov: 17.5, near: 1, far: 20 }}
         >
-          <ambientLight intensity={0.8} />
-          <Suspense fallback={null}>
-            <Float speed={0.5}>
-              <Model />
-            </Float>
-          </Suspense>
+          <ambientLight intensity={0.5} />
+          <Float speed={0.5}>
+            <Planet scale={isMobile ? 0.7 : 1} />
+          </Float>
           <Environment resolution={256}>
             <group rotation={[-Math.PI / 3, 4, 1]}>
               <Lightformer
@@ -64,7 +59,7 @@ results driven webs/apps`;
         </Canvas>
       </figure>
 
-      {/* Hero Header Content (z-10 on top of the 3D model) */}
+      {/* Header and Tagline in front */}
       <div className="relative z-10 w-full pointer-events-none">
         <AnimatedHeaderSection
           title={
@@ -79,7 +74,5 @@ results driven webs/apps`;
     </section>
   );
 };
-
-useGLTF.preload("/models/model.glb");
 
 export default Hero;
