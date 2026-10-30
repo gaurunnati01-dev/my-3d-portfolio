@@ -91,15 +91,21 @@ export const projects = [
     id: 1,
     name: "LinkedIn Agent Skill",
     description:
-      "An intelligent AI agent skill for automated networking, profile optimization, and smart personalized outreach on LinkedIn.",
-    href: "/linkedin-agent-skill",
-    image: "/assets/projects/apple-tech-store.jpg",
+      "11 Claude skills that write, humanize, and score LinkedIn posts — built on 21 hook formulas and a 5-check AI detection panel.",
+    image: "/projects/linkedin-agent-skill.png",
+    tags: [
+      { name: "claude", icon: "/tech/claude.png" },
+      { name: "python", icon: "/tech/python.png" },
+      { name: "linkedin", icon: "/tech/linkedin.png" },
+    ],
+    source_code_link: "https://github.com/Jakeschincariol/linkedin-agent-skill",
+    live_demo_link: "",
+    href: "https://github.com/Jakeschincariol/linkedin-agent-skill",
     bgImage: "/assets/backgrounds/poster.jpg",
     frameworks: [
-      { id: 1, name: "React" },
-      { id: 2, name: "Node.js" },
-      { id: 3, name: "AI/LLM" },
-      { id: 4, name: "Tailwind CSS" },
+      { id: 1, name: "Claude" },
+      { id: 2, name: "Python" },
+      { id: 3, name: "LinkedIn" },
     ],
   },
   {

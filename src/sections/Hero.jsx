@@ -7,14 +7,20 @@ import {
   OrbitControls,
   useGLTF,
   Html,
+  Preload,
 } from "@react-three/drei";
 import { useMediaQuery } from "react-responsive";
-import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
-import { name } from "../constants";
 
-const Model = () => {
+const Model = ({ isMobile }) => {
   const { scene } = useGLTF("/models/model.glb");
-  return <primitive object={scene} scale={2.0} position={[0, -0.5, 0]} />;
+  return (
+    <primitive
+      object={scene}
+      scale={isMobile ? 1.1 : 1.4}
+      position={isMobile ? [0, -0.8, 0] : [1.6, -0.6, 0]}
+      rotation={[0, -0.3, 0]}
+    />
+  );
 };
 
 const LoadingPrompt = () => (
@@ -28,35 +34,51 @@ const LoadingPrompt = () => (
 );
 
 const Hero = () => {
-  // Mobile device detection for performance optimization
+  // Mobile device detection for layout & performance optimization
   const isMobile = useMediaQuery({ maxWidth: 853 });
   const text = `I help growing brands and startups gain an
 unfair advantage through premium
 results driven webs/apps`;
 
   return (
-    <section id="home" className="flex flex-col justify-end min-h-screen">
-      <AnimatedHeaderSection
-        subTitle={"404 No Bugs Found"}
-        title={name || "Unnati Gaur"}
-        text={text}
-        textColor={"text-black"}
-      />
+    <section id="home" className="relative flex flex-col justify-between min-h-screen bg-black">
+      {/* Hero Content */}
+      <div className="relative z-10 flex flex-col justify-between min-h-screen px-6 sm:px-10 pt-28 pb-12 pointer-events-none">
+        <div>
+          <p className="text-xs sm:text-sm font-light tracking-[0.5rem] uppercase text-white/70">
+            404 No Bugs Found
+          </p>
+          <h1 className="font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2">
+            Hi, I'm <span className="text-[#915EFF]">Unnati Gaur</span>
+          </h1>
+          <p className="mt-4 text-sm sm:text-lg text-white/70 font-light max-w-lg uppercase whitespace-pre-line">
+            {text}
+          </p>
+        </div>
+      </div>
+
+      {/* 3D Canvas Background */}
       <figure
-        className="absolute inset-0 -z-50"
-        style={{ width: "100vw", height: "100vh" }}
+        className="absolute inset-0 z-0"
+        style={{ width: "100%", height: "100%" }}
       >
         <Canvas
           shadows
           dpr={isMobile ? [1, 1.5] : [1, 2]}
-          camera={{ position: [0, 0, -10], fov: 17.5, near: 1, far: 20 }}
+          camera={{ position: [0, 0, 6], fov: 45 }}
         >
-          <ambientLight intensity={0.5} />
-          <OrbitControls enableZoom={false} />
+          <ambientLight intensity={0.6} />
+          <directionalLight position={[5, 5, 5]} intensity={1.2} />
+          <OrbitControls
+            enableZoom={false}
+            enablePan={false}
+            maxPolarAngle={Math.PI / 2}
+          />
           <Suspense fallback={<LoadingPrompt />}>
             <Float speed={0.5}>
-              <Model />
+              <Model isMobile={isMobile} />
             </Float>
+            <Preload all />
           </Suspense>
           <Environment resolution={256}>
             <group rotation={[-Math.PI / 3, 4, 1]}>

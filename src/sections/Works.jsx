@@ -158,7 +158,7 @@ const Works = () => {
               <img
                 src={project.image}
                 alt={`${project.name}-image`}
-                className="absolute bg-center px-14 rounded-xl"
+                className="w-full h-full object-cover absolute bg-center px-14 rounded-xl"
               />
             </div>
           </div>
@@ -172,7 +172,7 @@ const Works = () => {
             <img
               src={projects[currentIndex].image}
               alt="preview"
-              className="object-cover w-full h-full"
+              className="w-full h-full object-cover"
             />
           )}
         </div>
@@ -182,4 +182,5 @@ const Works = () => {
 };
 
 export default Works;
+
 
