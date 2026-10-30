@@ -53,7 +53,7 @@ Currently, I am looking for a Software Developer role where I can bring my obses
         textColor={"text-white"}
         withScrollTrigger={true}
       />
-      <div className="flex flex-col items-center justify-between gap-16 px-10 pb-16 text-xl font-light tracking-wide lg:flex-row md:text-2xl lg:text-3xl text-white/80">
+      <div className="flex flex-col items-center justify-between gap-16 px-10 pb-16 text-xl font-light tracking-wide lg:flex-row md:text-1xl lg:text-3xl text-white/80">
         <img
           ref={imgRef}
           src={profileImg}
