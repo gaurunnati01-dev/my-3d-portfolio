@@ -18,24 +18,16 @@ results driven webs/apps`;
       id="home"
       className="relative flex flex-col justify-end min-h-screen bg-[#f3f3f3] overflow-hidden"
     >
-      <AnimatedHeaderSection
-        title={
-          <span>
-            Hi, I'm <span className="text-[#915EFF]">Unnati Gaur</span>
-          </span>
-        }
-        text={text}
-        textColor={"text-black"}
-      />
+      {/* 3D Canvas in background (z-0 so it renders on top of bg-[#f3f3f3]) */}
       <figure
-        className="absolute inset-0 -z-50 pointer-events-none"
-        style={{ width: "100vw", height: "100vh" }}
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{ width: "100%", height: "100%" }}
       >
         <Canvas
           shadows
           camera={{ position: [0, 0, 5], fov: 45 }}
         >
-          <ambientLight intensity={0.5} />
+          <ambientLight intensity={0.8} />
           <Suspense fallback={null}>
             <Float speed={0.5}>
               <Model />
@@ -71,6 +63,19 @@ results driven webs/apps`;
           </Environment>
         </Canvas>
       </figure>
+
+      {/* Hero Header Content (z-10 on top of the 3D model) */}
+      <div className="relative z-10 w-full pointer-events-none">
+        <AnimatedHeaderSection
+          title={
+            <span>
+              Hi, I'm <span className="text-[#915EFF]">Unnati Gaur</span>
+            </span>
+          }
+          text={text}
+          textColor={"text-black"}
+        />
+      </div>
     </section>
   );
 };
