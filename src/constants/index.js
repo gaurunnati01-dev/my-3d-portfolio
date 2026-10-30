@@ -1,4 +1,12 @@
 // index.js
+export const name = "Unnati Gaur";
+export const email = "gaurunnati01@gmail.com";
+
+export const personalInfo = {
+  name: "Unnati Gaur",
+  email: "gaurunnati01@gmail.com",
+};
+
 export const servicesData = [
   {
     title: "FullStack Development",
@@ -77,9 +85,25 @@ export const servicesData = [
     ],
   },
 ];
+
 export const projects = [
   {
     id: 1,
+    name: "LinkedIn Agent Skill",
+    description:
+      "An intelligent AI agent skill for automated networking, profile optimization, and smart personalized outreach on LinkedIn.",
+    href: "/linkedin-agent-skill",
+    image: "/assets/projects/apple-tech-store.jpg",
+    bgImage: "/assets/backgrounds/poster.jpg",
+    frameworks: [
+      { id: 1, name: "React" },
+      { id: 2, name: "Node.js" },
+      { id: 3, name: "AI/LLM" },
+      { id: 4, name: "Tailwind CSS" },
+    ],
+  },
+  {
+    id: 2,
     name: "Mobile Accessories E-commerce",
     description:
       "An online store specializing in phone accessories including cases, chargers, cables, and power banks with MagSafe compatibility.",
@@ -95,7 +119,7 @@ export const projects = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     name: "Plant Shop E-commerce",
     description:
       "An online store specializing in rare and decorative plants with a clean, user-friendly interface.",
@@ -110,7 +134,7 @@ export const projects = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     name: "Apple Tech Marketplace",
     description:
       "An e-commerce platform for Apple products and accessories with deals and category filtering.",
@@ -125,7 +149,7 @@ export const projects = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     name: "Electronics & Gadgets Store",
     description:
       "A multi-category online shop featuring electronics, home appliances, and gaming gear with special offers.",
@@ -140,7 +164,7 @@ export const projects = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     name: "Home Decor Marketplace",
     description:
       "A curated collection of designer home decor items, including furniture and artisan vases.",
@@ -155,7 +179,7 @@ export const projects = [
     ],
   },
   {
-    id: 6,
+    id: 7,
     name: "Digital Game Store",
     description:
       "A gaming platform featuring discounted titles, top sellers, and genre-based browsing.",
@@ -170,12 +194,7 @@ export const projects = [
     ],
   },
 ];
+
 export const socials = [
-  { name: "Instagram", href: "https://www.instagram.com/ali.sanatidev/reels/" },
-  {
-    name: "Youtube",
-    href: "https://www.youtube.com/channel/UCZhtUWTtk3bGJiMPN9T4HWA",
-  },
-  { name: "LinkedIn", href: "https://www.linkedin.com/in/ali-sanati/" },
-  { name: "GitHub", href: "https://github.com/Ali-Sanati" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/unnatigaur01-developer" },
 ];

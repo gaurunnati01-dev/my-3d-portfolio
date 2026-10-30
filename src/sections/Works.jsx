@@ -118,7 +118,7 @@ const Works = () => {
             id="project"
             className="relative flex flex-col gap-1 py-5 cursor-pointer group md:gap-0"
             onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={() => handleMouseLeave(index)}
+            onMouseLeave={() => handleMouseLeave(index)} onClick={() => { if (project.href) window.open(project.href, "_blank"); }}
           >
             {/* overlay */}
             <div
@@ -182,3 +182,4 @@ const Works = () => {
 };
 
 export default Works;
+
