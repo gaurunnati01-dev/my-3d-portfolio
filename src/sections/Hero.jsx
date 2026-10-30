@@ -60,7 +60,7 @@ results driven webs/apps`;
       </figure>
 
       {/* Header and Tagline in front - All solid black */}
-      <div className="relative z-10 w-40 pointer-events-none text-black">
+      <div className="relative z-10 w-full text-2xl pointer-events-none text-black">
         <AnimatedHeaderSection
           title={"Hi, I'm Unnati Gaur"}
           text={text}
